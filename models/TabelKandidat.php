@@ -49,8 +49,8 @@ class TabelKandidat extends DB implements KontrakModel {
     }
 
     public function addKandidat(string $nama, string $posisi, string $domisili, int $skorTes, int $pengalamanTahun): void {
-        $query = "INSERT INTO kandidat (nama, posisi, domisili, skorTes, pengalamanTahun)
-                  VALUES (:nama, :posisi, :domisili, :skorTes, :pengalamanTahun)";
+        $query =    "INSERT INTO kandidat (nama, posisi, domisili, skorTes, pengalamanTahun)
+                    VALUES (:nama, :posisi, :domisili, :skorTes, :pengalamanTahun)";
         $this->executeQuery($query, [
             'nama' => $nama,
             'posisi' => $posisi,
@@ -61,10 +61,10 @@ class TabelKandidat extends DB implements KontrakModel {
     }
 
     public function updateKandidat(int $id, string $nama, string $posisi, string $domisili, int $skorTes, int $pengalamanTahun): void {
-        $query = "UPDATE kandidat
-                  SET nama = :nama, posisi = :posisi, domisili = :domisili,
-                      skorTes = :skorTes, pengalamanTahun = :pengalamanTahun
-                  WHERE id = :id";
+        $query =    "UPDATE kandidat
+                    SET nama = :nama, posisi = :posisi, domisili = :domisili,
+                        skorTes = :skorTes, pengalamanTahun = :pengalamanTahun
+                    WHERE id = :id";
         $this->executeQuery($query, [
             'id' => $id,
             'nama' => $nama,

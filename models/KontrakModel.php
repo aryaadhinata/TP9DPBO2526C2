@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__ . '/Kandidat.php';
-
 interface KontrakModel {
     /**
      * Mengambil seluruh data kandidat sebagai array objek Kandidat.

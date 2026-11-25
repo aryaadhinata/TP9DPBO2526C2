@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/KontrakPresenter.php';
 require_once __DIR__ . '/../models/KontrakModel.php';
-require_once __DIR__ . '/../models/Kandidat.php';
 require_once __DIR__ . '/../views/KontrakView.php';
 
 class PresenterKandidat implements KontrakPresenter {
@@ -19,9 +18,9 @@ class PresenterKandidat implements KontrakPresenter {
      */
     private function buildRowHtml(int $no, Kandidat $kandidat): string {
         $id = (int)$kandidat->getId();
-        $nama = htmlspecialchars($kandidat->getNama(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-        $posisi = htmlspecialchars($kandidat->getPosisi(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-        $domisili = htmlspecialchars($kandidat->getDomisili(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        $nama = htmlspecialchars($kandidat->getNama());
+        $posisi = htmlspecialchars($kandidat->getPosisi());
+        $domisili = htmlspecialchars($kandidat->getDomisili());
         $skorTes = number_format($kandidat->getSkorTes()) . ' / 100';
         $pengalaman = number_format($kandidat->getPengalamanTahun()) . ' Tahun';
 
@@ -49,7 +48,7 @@ class PresenterKandidat implements KontrakPresenter {
 
         $rowsHtml = '';
         if(empty($listKandidat)){
-            $rowsHtml = '<tr><td colspan="7" style="text-align:center;color:#6b7280;padding:24px;">
+            $rowsHtml = '<tr><td calspan="7" style="text-align:center;color:#6b7280;padding24px;">
             Belum ada data kandidat.</td></tr>';
         }else{
             $no = 1;
@@ -62,11 +61,12 @@ class PresenterKandidat implements KontrakPresenter {
         return $this->view->renderDaftar($rowsHtml, $totalKandidat);
     }
 
-    public function tampilkanFormKandidat(?int $id = null): ?string {
+    public function tampilkanFormKandidat(?int $id = null): string {
         if($id !== null){
             $kandidat = $this->model->getKandidatById($id);
             if($kandidat === null){
-                return null;
+                header("Location: index.php");
+                exit();
             }
 
             $formData = [
@@ -78,74 +78,28 @@ class PresenterKandidat implements KontrakPresenter {
                 'pengalamanTahun'   => $kandidat->getPengalamanTahun(),
             ];
 
-            return $this->view->renderForm("Ubah Data Kandidat", "ubah", $formData);
+            return $this->view->renderForm("Ubah Data Kadidat", "ubah", $formData);
         }
 
         return $this->view->renderForm("Tambah Kandidat Baru", "tambah", []);
     }
 
     public function tambahKandidat(string $nama, string $posisi, string $domisili, int $skorTes, int $pengalamanTahun): void {
-        [$nama, $posisi, $domisili] = $this->validateKandidatInput(
-            $nama,
-            $posisi,
-            $domisili,
-            $skorTes,
-            $pengalamanTahun
-        );
         $this->model->addKandidat($nama, $posisi, $domisili, $skorTes, $pengalamanTahun);
+        header("Location: index.php");
+        exit();
     }
 
     public function ubahKandidat(int $id, string $nama, string $posisi, string $domisili, int $skorTes, int $pengalamanTahun): void {
-        $this->validateId($id);
-        [$nama, $posisi, $domisili] = $this->validateKandidatInput(
-            $nama,
-            $posisi,
-            $domisili,
-            $skorTes,
-            $pengalamanTahun
-        );
         $this->model->updateKandidat($id, $nama, $posisi, $domisili, $skorTes, $pengalamanTahun);
+        header("Location: index.php");
+        exit();
     }
 
     public function hapusKandidat(int $id): void {
-        $this->validateId($id);
         $this->model->deleteKandidat($id);
-    }
-
-    private function validateId(int $id): void {
-        if ($id < 1) {
-            throw new InvalidArgumentException("ID kandidat tidak valid.");
-        }
-    }
-
-    private function validateKandidatInput(
-        string $nama,
-        string $posisi,
-        string $domisili,
-        int $skorTes,
-        int $pengalamanTahun
-    ): array {
-        $fields = [
-            'nama' => trim($nama),
-            'posisi' => trim($posisi),
-            'domisili' => trim($domisili),
-        ];
-
-        foreach ($fields as $field => $value) {
-            if ($value === '' || preg_match('/\A.{1,100}\z/us', $value) !== 1) {
-                throw new InvalidArgumentException("Field {$field} wajib diisi maksimal 100 karakter.");
-            }
-        }
-
-        if ($skorTes < 0 || $skorTes > 100) {
-            throw new InvalidArgumentException("Skor tes harus berada pada rentang 0 sampai 100.");
-        }
-
-        if ($pengalamanTahun < 0) {
-            throw new InvalidArgumentException("Pengalaman kerja harus berupa bilangan non-negatif.");
-        }
-
-        return array_values($fields);
+        header("Location: index.php");
+        exit();
     }
 }
 ?>
