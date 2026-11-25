@@ -1,4 +1,9 @@
 # Sistem Manajemen Rekrutmen
+```
+Saya Mohammad Arya Dhinata dengan NIM 2504992 mengerjakan Tugas Praktikum 8 dalam mata kuliah Desain
+Pemrograman Berbasis Objek untuk keberkahan-Nya maka saya tidak melakukan kecurangan seperti
+yang di spesifikasikan. Aamiin
+```
 
 Aplikasi PHP untuk mengelola kandidat karyawan dan interviewer menggunakan arsitektur **Model–View–Presenter (MVP)** dengan prinsip **Strict Passive View**.
 
@@ -33,6 +38,8 @@ Komunikasi Presenter dengan Model dan View menggunakan interface. Kontrak Kandid
 ### Struktur File Utama
 
 ```text
+documentation/
+└── TP9DPBO2526C2.mp4
 project/
 ├── index.php
 ├── models/
@@ -58,9 +65,7 @@ project/
     ├── form.html
     ├── interviewer_skin.html
     └── interviewer_form.html
-
 mvp_db.sql
-documentation/
 ```
 
 ## Alur Program
@@ -99,6 +104,4 @@ Database bernama `mvp_kandidat_db` dan didefinisikan di [mvp_db.sql](./mvp_db.sq
 
 ## Dokumentasi Screen Record
 
-Rekaman demonstrasi akan disimpan di folder [documentation/](./documentation/). Tambahkan file rekaman setelah tersedia, misalnya `documentation/screenrecord.mp4`.
-
-Disarankan rekaman memperlihatkan daftar Kandidat dan Interviewer, proses tambah, edit dengan form terisi, serta hapus data pada kedua modul.
+Rekaman demonstrasi akan disimpan di folder [documentation/](./documentation/TP9DPBO2526C2.mp4).
