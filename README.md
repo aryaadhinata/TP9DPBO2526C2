@@ -6,7 +6,11 @@ Starter template praktikum DPBO menggunakan pola **Model-View-Presenter (MVP)** 
 1. Import `mvp_db.sql` ke MySQL / phpMyAdmin (membuat database `mvp_kandidat_db`).
 2. Pastikan folder berada di `htdocs/` (XAMPP) atau `www/` (Laragon).
 
-## Bagian yang Harus Dikerjakan
-1. **Latihan (*Read* & *Form*)**: Lengkapi `TabelKandidat::getAllKandidat()`, `TabelKandidat::getKandidatById()`, serta `__construct()`, `tampilkanKandidat()`, dan `tampilkanFormKandidat()` di `PresenterKandidat.php`.
-2. **Tugas Praktikum (*Create, Update, Delete*)**: Lengkapi method `add/update/delete` di `TabelKandidat.php` dan `PresenterKandidat.php`, lalu hubungkan blok `POST` di `index.php`.
+## Fitur
+- CRUD data kandidat karyawan.
+- CRUD interviewer, termasuk form tambah/edit dan daftar data.
+- Pemisahan Model, View, dan Presenter menggunakan kontrak interface.
+
+## Modul Interviewer
+Modul Interviewer menyediakan fitur tambah, daftar, edit, dan hapus data interviewer. Untuk database yang sudah dibuat, jalankan perintah `CREATE TABLE interviewer` dari `mvp_db.sql` sebelum menggunakan modul. Akses melalui tombol **Kelola Interviewer** pada daftar kandidat.
 

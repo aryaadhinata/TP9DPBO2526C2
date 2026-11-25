@@ -12,6 +12,15 @@ CREATE TABLE IF NOT EXISTS `kandidat` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `interviewer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(100) NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `departemen` varchar(100) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 INSERT INTO `kandidat` (`id`, `nama`, `posisi`, `domisili`, `skorTes`, `pengalamanTahun`) VALUES
 (1, 'Raka Pratama', 'Backend Developer', 'Bandung', 92, 3),
 (2, 'Sinta Maharani', 'UI/UX Designer', 'Jakarta', 88, 2),
