@@ -48,7 +48,7 @@ class PresenterKandidat implements KontrakPresenter {
 
         $rowsHtml = '';
         if(empty($listKandidat)){
-            $rowsHtml = '<tr><td calspan="7" style="text-align:center;color:#6b7280;padding24px;">
+            $rowsHtml = '<tr><td colspan="7" style="text-align:center;color:#6b7280;padding:24px;">
             Belum ada data kandidat.</td></tr>';
         }else{
             $no = 1;
@@ -78,7 +78,7 @@ class PresenterKandidat implements KontrakPresenter {
                 'pengalamanTahun'   => $kandidat->getPengalamanTahun(),
             ];
 
-            return $this->view->renderForm("Ubah Data Kadidat", "ubah", $formData);
+            return $this->view->renderForm("Ubah Data Kandidat", "ubah", $formData);
         }
 
         return $this->view->renderForm("Tambah Kandidat Baru", "tambah", []);
