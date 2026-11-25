@@ -27,3 +27,8 @@ INSERT INTO `kandidat` (`id`, `nama`, `posisi`, `domisili`, `skorTes`, `pengalam
 (3, 'Dimas Nugroho', 'Data Analyst', 'Yogyakarta', 85, 1),
 (4, 'Nadia Kusuma', 'Frontend Developer', 'Surabaya', 90, 2),
 (5, 'Bagas Setiawan', 'QA Engineer', 'Bandung', 81, 1);
+
+INSERT INTO `interviewer` (`nama`, `jabatan`, `departemen`, `email`) VALUES
+('Rina Permata', 'HR Manager', 'Talent Acquisition', 'rina.permata@example.com'),
+('Budi Santoso', 'Senior Technical Recruiter', 'Engineering', 'budi.santoso@example.com'),
+('Maya Putri', 'Lead Interviewer', 'Product and Design', 'maya.putri@example.com');
