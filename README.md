@@ -1,6 +1,6 @@
 # Sistem Manajemen Rekrutmen
 ```
-Saya Mohammad Arya Dhinata dengan NIM 2504992 mengerjakan Tugas Praktikum 8 dalam mata kuliah Desain
+Saya Mohammad Arya Dhinata dengan NIM 2504992 mengerjakan Tugas Praktikum 9 dalam mata kuliah Desain
 Pemrograman Berbasis Objek untuk keberkahan-Nya maka saya tidak melakukan kecurangan seperti
 yang di spesifikasikan. Aamiin
 ```
